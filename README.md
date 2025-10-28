@@ -1,5 +1,3 @@
----
-
 # Build a Job Board App with Next.js & Prisma
 
 
