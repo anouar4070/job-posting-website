@@ -47,8 +47,8 @@
 ### Clone and Run
 
 ```bash
-git clone https://github.com/yourusername/job-board-next-prisma.git
-cd job-board-next-prisma
+git clone https://github.com/anouar4070/job-posting-website.git
+cd job-posting-website
 npm install
 
 # Configure your database in .env
