@@ -1,3 +1,4 @@
+//* *** Code given by Prisma to setup Prisma in NextJS Project ***
 import { PrismaClient } from "../app/generated/prisma/client";
 import { withAccelerate } from "@prisma/extension-accelerate";
 
