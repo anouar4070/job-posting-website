@@ -2,11 +2,12 @@
 
 import Link from "next/link";
 import Image from "next/image";
-//import { useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
+import { logout } from "../lib/auth";
 //import { logout } from "@/lib/auth";
 
 export default function Navbar() {
-  //const { data: session } = useSession();
+  const { data: session } = useSession();
   return (
     <nav className="bg-white shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -35,33 +36,37 @@ export default function Navbar() {
             >
               Browse Jobs
             </Link>
-            <Link
-              href="/jobs/post"
-              className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
-            >
-              Post a Job
-            </Link>
+            {session ? (
+              <>
+                <Link
+                  href="/jobs/post"
+                  className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Post a Job
+                </Link>
 
-            <Link
-              href="/dashboard"
-              className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
-            >
-              Dashboard
-            </Link>
+                <Link
+                  href="/dashboard"
+                  className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Dashboard
+                </Link>
 
-            {/* <button
+                <button
                   onClick={logout}
                   className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Sign Out
-                </button> */}
-
-            <Link
-              href="/auth/signin"
-              className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
-            >
-              Sign In
-            </Link>
+                </button>
+              </>
+            ) : (
+              <Link
+                href="/auth/signin"
+                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
+              >
+                Sign In
+              </Link>
+            )}
           </div>
         </div>
       </div>
