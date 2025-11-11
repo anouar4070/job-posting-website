@@ -1,4 +1,5 @@
-
+//auth.ts → with Prisma (only for API routes)
+//Manages the Prisma adapter → saves users/sessions to the database
 import NextAuth from "next-auth";
 import GitHub from "next-auth/providers/github";
 import { PrismaAdapter } from "@auth/prisma-adapter";
